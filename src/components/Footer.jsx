@@ -14,10 +14,10 @@ const Footer = () => {
             di era digital. Kami mengutamakan inovasi, kualitas, dan kepuasan klien.
           </p>
           <div className="social-links">
-            <a href="#">FB</a>
-            <a href="#">IG</a>
-            <a href="#">TW</a>
-            <a href="#">LI</a>
+            <Link to="#">FB</Link>
+            <Link to="#">IG</Link>
+            <Link to="#">TW</Link>
+            <Link to="#">LI</Link>
           </div>
         </div>
 
