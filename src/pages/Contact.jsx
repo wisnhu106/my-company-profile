@@ -9,14 +9,21 @@ const Contact = () => {
     message: ''
   });
 
+  const [showModal, setShowModal] = useState(false);
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`Terima kasih ${formData.name}, pesan Anda telah terkirim! (Simulasi)`);
-    // Di sini Anda bisa menambahkan logika integrasi API
+    console.log("Data dikirim:", formData);
+
+    //memunculkan modal
+    setShowModal(true);
+    
+    //Reset Form
+    setFormData({name: '', email: '', subject: '', message: ''});
   };
 
   return (
@@ -118,6 +125,19 @@ const Contact = () => {
           {/* Anda bisa memasukkan tag <iframe> dari Google Maps di sini */}
         </div>
       </section>
+
+      {showModal && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <div className="success-icon">✓</div>
+            <h2>Pesan Terkirim!</h2>
+            <p>Terima kasih telah menghubungi kami. Tim kami akan segera membalas pesan Anda melalui email.</p>
+            <button className="close-modal-btn" onClick={() => setShowModal(false)}>
+              Tutup
+            </button>
+          </div>
+        </div>
+      )}
     </main>
   );
 };
